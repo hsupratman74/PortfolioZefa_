@@ -1,0 +1,551 @@
+* {
+    margin: 7;
+    padding: 10;
+    box-sizing: border-box;
+    text-decoration: blink;
+    list-style: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: -apple-system, cursive;
+}
+
+:root {
+    --bg-color: #b2ebf2; /* Light Cyan background */
+    --second-bg-color: #a5d6a7; /* Soft green */
+    --text-color: #228B22; /* Light text color */
+    --main-color: #76ff03 ; /* Neon green */
+    --green-gradient: linear-gradient(135deg, #00b34a, #76ff03, #00e676); /* Green gradient */
+    --text-gradient: linear-gradient(135deg, #a5d6a7, #76ff03, #00b34a); /* Gradient text color */
+}
+
+html {
+    font-size: 70%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 2rem;
+    line-height: 1.5;
+    background-image: url('image/nature-bg.jpg'); /* Nature background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 5%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(7px);
+    transition: all 0.4s ease;
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: 700;
+    background: var(--green-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo:hover {
+    text-shadow: 0 0 10px var(--main-color), 0 0 20px var(--main-color), 0 0 30px var(--main-color);
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.navbar {
+    display: flex;
+}
+
+.navbar a {
+    font-size: 2rem;
+    font-weight: bold;
+    background: -webkit-linear-gradient(45deg, #00b34a, #76ff03);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-left: 4rem;
+    transition: color 0.4s ease, border-bottom 0.3s ease;
+    border-bottom: 7px solid limegreen;
+}
+
+.navbar a:hover {
+    color: var(--main-color);
+    border-bottom: 4px solid var(--main-color);
+}
+
+.navbar a {
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--main-color);
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+#menu-icon {
+    display: none;
+}
+
+.nav-btn {
+    padding: 1.5rem 3.2rem;
+    background: transparent;
+    color: var(--main-color);
+    border: 4px solid var(--main-color);
+    border-radius: 4rem;
+    font-size: 2rem;
+    font-weight: 700;
+    transition: all 0.4s ease;
+}
+
+.nav-btn:hover {
+    background: var(--main-color);
+    color: var(--text-color);
+}
+
+.nav-btn:hover {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 10px var(--main-color);
+    }
+    50% {
+        box-shadow: 0 0 20px var(--main-color);
+    }
+}
+
+section {
+    min-height: 100vh;
+    padding: 17rem 4% 7rem;
+}
+
+.contact {
+    padding: 3rem 5%;
+    background: var(--second-bg-color);
+    color: var(--text-color);
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 3rem;
+    background: -webkit-linear-gradient(45deg, #00b34a, #76ff03);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 3rem;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 1px solid var(--main-color);
+    border-radius: 0.5rem;
+    background: var(--second-bg-color);
+    color: var(--text-color);
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    border-color: var(--main-color);
+    outline: none;
+    box-shadow: 0 0 10px var(--main-color);
+}
+
+.contact .btn {
+    display: block;
+    width: 100%;
+    padding: 1rem 2.5rem;
+    background: var(--main-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contact .btn:hover {
+    background: #00b34a;
+    transform: scale(1.05);
+}
+
+.contact input:hover,
+.contact textarea:hover {
+    background: #003020;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    box-shadow: 0 0 15px var(--main-color);
+}
+
+.contact .btn:hover {
+    transform: scale(1.1);
+    background: var(--main-color);
+    box-shadow: 0 0 15px #00e676, 0 0 20px #76ff03;
+}
+
+
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.footer .social a {
+    margin: 0 1rem;
+    font-size: 2rem;
+    background: -webkit-linear-gradient(45deg, #00b34a, #76ff03);
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: color 0.3s ease;
+}
+
+.footer .social a:hover {
+    color: var(--text-color);
+}
+
+/* Mengatur gambar agar lebih kecil */
+img {
+    width: 90%; /* Menambah ukuran gambar menjadi 100% */
+    max-width: 700px; /* Maksimal lebar gambar menjadi 500px */
+    border: 4px solid #76ff03; /* Bingkai tetap cantik */
+    border-radius: 12px; /* Sudut yang lebih melengkung */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Bayangan dramatis */
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    border: 6px dashed #00e676; /* Bingkai dashed pada gambar */
+    padding: 8px;
+    background: linear-gradient(135deg, #1a3d2f, #003b2d); /* Latar belakang gradien untuk gambar */
+}
+
+img:hover {
+    transform: scale(1.05); /* Memperbesar gambar saat hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Bayangan lebih besar */
+
+}
+
+/* Menggunakan Flexbox untuk menampilkan gambar dan teks berdampingan */
+.about-img {
+    display: flex;
+    align-items: center; /* Teks di tengah vertikal */
+    justify-content: flex-start; /* Teks berada di sebelah kiri gambar */
+    gap: 2rem; /* Memberikan jarak antara gambar dan teks */
+}
+
+/* Membuat border cantik untuk gambar pada section 'about' */
+.about-img img {
+    border: 6px dashed #00e676; /* Bingkai dashed pada gambar */
+    padding: 8px;
+    background: linear-gradient(135deg, #1a3d2f, #003b2d); /* Latar belakang gradien untuk gambar */
+}
+
+/* Jika ada elemen teks di sebelah gambar, sesuaikan dengan flexbox */
+.about-img .text {
+    max-width: 600px; /* Membatasi lebar teks */
+    color: var(--text-color); /* Warna teks putih */
+    font-size: 1.8rem; /* Ukuran font sedikit lebih besar */
+    line-height: 1.6; /* Spasi baris yang nyaman */
+    text-align: justify; /* Meratakan teks */
+}
+
+/* Untuk Portfolio Section */
+.portfolio img {
+    width: 100%; /* Menjaga gambar tetap responsif */
+    max-width: 500px; /* Maksimal lebar 350px */
+    border: 6px double #76ff03; /* Bingkai ganda pada gambar portfolio */
+    background: #003b2d; /* Latar belakang gelap untuk gambar portfolio */
+}
+
+/* Gambar di bagian "Home" */
+.home-img img {
+    width: 110%; /* Lebar gambar lebih kecil */
+    height: auto;
+    border: 3px solid #00b34a;
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+}
+
+.home-img img:hover {
+    transform: rotate(3deg) scale(1.08);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Portfolio Section Redesign */
+.portfolio {
+    padding: 80px 40px;
+    text-align: center;
+    background: #f9f9f9; /* Soft light background */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 12px;
+    margin: 40px auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio .heading {
+    font-size: 3.6rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+}
+
+.portfolio .heading::after {
+    content: '';
+    width: 100px;
+    height: 3px;
+    background: #26a69a; /* Accent color */
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.portfolio-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Portfolio Card */
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-content {
+    padding: 16px;
+    text-align: left;
+}
+
+.card-content h3 {
+    font-size: 2rem;
+    color: #26a69a; /* Accent color */
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 1.6rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.card-content a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.4rem;
+    color: white;
+    background: #26a69a; /* Button color */
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.card-content a:hover {
+    background: #1e8c74; /* Darker button hover color */
+}
+
+.contact {
+    padding: 4rem 5%;
+    background: var(--second-bg-color);
+    color: var(--text-color);
+    margin-top: 10rem;
+    border-radius: 1rem;
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 3rem;
+    background: -webkit-linear-gradient(45deg, #00e676, #76ff03);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 3rem;
+}
+
+.contact .btn {
+    display: block;
+    width: 100%;
+    padding: 1.2rem 2.5rem;
+    background: var(--main-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contact .btn:hover {
+    background: #00b34a; /* Hijau lebih gelap untuk hover */
+    transform: scale(1.05);
+}
+
+.contact input:hover,
+.contact textarea:hover {
+    background: #a1d6a6; /* Background hijau lembut untuk input hover */
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+.contact .btn:hover {
+    transform: scale(1.1);
+    background: var(--main-color);
+    box-shadow: 0 0 15px #00e676, 0 0 20px #76ff03;
+}
+
+/* Menata home section agar teks dan gambar berada berdampingan */
+.home {
+    display: flex;
+    align-items: center; /* Vertikal center untuk konten */
+    justify-content: space-between; /* Memberi jarak antara teks dan gambar */
+    padding: 13rem 8%; /* Menambah padding agar lebih lebar */
+    gap: 6rem; /* Menambah jarak antara teks dan gambar */
+}
+
+/* Menata home-content (teks) */
+.home-content {
+    max-width: 55%; /* Menyesuaikan lebar teks agar tidak terlalu lebar */
+    margin-right: 2rem; /* Memberikan jarak kanan yang lebih besar antara teks dan gambar */
+}
+
+.home-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1rem; /* Memberikan jarak bawah pada h1 */
+}
+
+.home-content h3 {
+    font-size: 2rem;
+    color: var(--main-color);
+    margin-bottom: 1rem; /* Memberikan jarak bawah pada h3 */
+}
+
+.home-content p {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 2rem; /* Memberikan jarak bawah pada paragraf */
+}
+
+.home-content .social-media a {
+    font-size: 2.5rem;
+    color: var(--main-color);
+    margin: 0.5rem; /* Memberikan margin antar ikon social media */
+    transition: transform 0.3s ease;
+}
+
+.home-content .social-media a:hover {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+/* Tombol Download CV */
+.home .btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: var(--main-color);
+    color: var(--text-color);
+    border-radius: 3rem;
+    margin-top: 3rem; /* Memberikan jarak atas pada tombol */
+    transition: transform 0.3s ease;
+}
+
+.home .btn:hover {
+    transform: scale(1.05);
+    background: #00b34a;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.about-content .social-media a {
+    font-size: 2.5rem;
+    color: var(--main-color);
+    margin: 0.5rem; /* Memberikan margin antar ikon social media */
+    transition: transform 0.3s ease;
+}
+
+.about-content .social-media a:hover {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+/* Tombol Download CV */
+.about .btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: var(--main-color);
+    color: var(--text-color);
+    border-radius: 3rem;
+    margin-top: 3rem; /* Memberikan jarak atas pada tombol */
+    transition: transform 0.3s ease;
+}
+
+.about .btn:hover {
+    transform: scale(1.05);
+    background: #00b34a;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+
